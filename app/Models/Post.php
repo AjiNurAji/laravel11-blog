@@ -2,42 +2,36 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Post
+class Post extends Model
 {
-    public static function all()
+    use HasFactory;
+
+    public $incrementing = false;
+
+    protected $primaryKey = '_id';
+
+    protected $keyType = 'string';
+
+    protected $fillable = [
+        '_id',
+        'slug',
+        'title',
+        'author_id',
+        'category_id',
+        'body'
+    ];
+
+    public function author(): BelongsTo
     {
-        return [
-            [
-                'id' => 1,
-                'slug' => 'judul-artikel-1',
-                'title' => 'Judul Artikel 1',
-                'author' => 'Aji Nur Aji',
-                'body' => 'Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Unde, beatae deserunt corrupti quaerat praesentium culpa labore natus repellendus
-                id cumque dignissimos, numquam veniam perferendis officia ab? Tempora voluptatem necessitatibus
-                suscipit?'
-            ],
-            [
-                'id' => 2,
-                'slug' => 'judul-artikel-2',
-                'title' => 'Judul Artikel 2',
-                'author' => 'Tia Niandari',
-                'body' => 'Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Unde, beatae deserunt corrupti quaerat praesentium culpa labore natus repellendus
-                id cumque dignissimos, numquam veniam perferendis officia ab? Tempora voluptatem necessitatibus
-                suscipit?'
-            ],
-        ];
+        return $this->belongsTo(User::class, 'author_id');
     }
 
-    public static function find($slug): array
+    public function category(): BelongsTo
     {
-        $post = Arr::first(static::all(), fn ($post) => $post['slug'] == $slug);
-
-        if (!$post) abort(404);
-
-        return $post;
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }
