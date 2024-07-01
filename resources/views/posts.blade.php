@@ -4,13 +4,13 @@
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-6 lg:max-w-none lg:grid-cols-3">
         @foreach ($posts as $post)
             <article
-                class="flex max-w-xl flex-col items-start justify-start border border-gray-300 bg-white rounded-md py-4 px-5">
+                class="flex max-w-xl flex-col items-start justify-start border border-gray-300 overflow-hidden bg-white rounded-md py-4 px-5">
                 <div class="flex items-center gap-x-4 text-xs">
                     <a href="/category/{{ $post->category->slug }}"
                         class="relative z-10 rounded-full bg-gray-100 p-1.5 font-normal text-gray-600 hover:bg-gray-300">{{ $post->category->name }}</a>
                 </div>
                 <div class="group relative">
-                    <h3 class="mt-2 text-lg font-semibold leading-6 text-gray-900">
+                    <h3 class="mt-2 text-lg font-semibold leading-6 line-clamp-1 text-gray-900">
                         <a href="/posts/{{ $post->slug }}" class="hover:underline">
                             {{ $post->title }}
                         </a>

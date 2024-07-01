@@ -16,6 +16,8 @@ class Post extends Model
 
     protected $keyType = 'string';
 
+    protected $with = ['author', 'category'];
+
     protected $fillable = [
         '_id',
         'slug',

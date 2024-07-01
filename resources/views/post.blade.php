@@ -9,7 +9,7 @@
                     class="relative z-10 rounded-full bg-gray-100 p-1.5 font-normal text-gray-600 hover:bg-gray-300">{{ $post->category->name }}</a>
             </div>
             <div class="group relative">
-                <h3 class="mt-2 text-lg font-semibold leading-6 text-gray-900">
+                <h3 class="mt-2 text-lg font-semibold leading-6 line-clamp-1 text-gray-900">
                     {{ $post->title }}
                 </h3>
                 <div class="mt-2 text-xs">
