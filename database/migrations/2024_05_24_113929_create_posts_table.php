@@ -20,6 +20,11 @@ return new class extends Migration
                 column: '_id',
                 indexName: 'post_author_id'
             );
+            $table->foreignId('category_id')->constrained(
+                table: 'categories',
+                column: '_id',
+                indexName: 'post_category_id'
+            );
             $table->text('body');
             $table->timestamps();
         });
