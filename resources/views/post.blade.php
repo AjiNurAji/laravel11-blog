@@ -2,8 +2,8 @@
     <x-slot:title>{{ $title }}</x-slot:title>
 
 
-    <main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
-        <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+    <main class="px-4 antialiased">
+        <div class="flex justify-between pt-4 pb-8 lg:pb-16 lg:pt-8 px-4 lg:px-8 mx-auto max-w-screen-xl bg-white dark:bg-gray-900 ">
             <article
                 class="mx-auto w-full max-w-5xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
                 <header class="mb-4 lg:mb-6 not-format">
